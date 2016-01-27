@@ -29,7 +29,7 @@ public class ValetParking<T extends Vehicle> {
 		}
 		throw new ParkingFullException("The parking is full");
 	}
-
+// TODO CODE REVIEW: Restrain yourself from committing code that is not used. If it is not used it has no added value. 
 /*	public boolean isValetParkingFull() {
 		for (Entry<Integer, ParkingTicket> entry : parkingLotMap.entrySet()) {
 			if (entry.getValue() == null) {
@@ -40,6 +40,7 @@ public class ValetParking<T extends Vehicle> {
 	}*/
 
 	public void parkVehicle(T t, ParkingTicket parkingTicket) throws ParkingFullException {
+		// TODO CODE REVIEW: You are supposed to receive a ticket from the Vallet. Not the other way around.
 		int spacePlace = getEmptyPlace();
 		t.start();
 		t.drive(distanceToSpot);
@@ -62,6 +63,7 @@ public class ValetParking<T extends Vehicle> {
 			throw new ParkingSpaceNotFoundException("No parking space was found for the given ticket");
 		}
 
+		// TODO CODE REVIEW: Don't be shy. Use full names (vehicle instead of veh). There's enough memory to store the variable name, and it helps out when you read the code.
 		T veh = null;
 		for (Entry<ParkingTicket, T> entry : parkedMap.entrySet()) {
 			if (entry.getKey() == parkingTicket) {
